@@ -9,7 +9,7 @@ function Footer() {
   const [active,setActive] = useState(false)
   return (
     <footer className='container mx-auto flex-center flex-col py-24 max-w-2xl space-y-12'>  
-      <h1 className='text-5xl font-creteRound text-center'>
+      <h1 className='text-5xl max-md:text-3xl font-creteRound text-center'>
         Get latest post delivered right to you
       </h1>
       <div className='grid grid-cols-3 max-md:grid-cols-1 md:gap-4 w-full'> 
