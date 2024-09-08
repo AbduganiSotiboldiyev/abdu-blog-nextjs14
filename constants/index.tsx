@@ -14,3 +14,17 @@ export  const navLinks = [
     {name : "Contact", route :"/contact", icon : Contact2}, 
 
 ]
+
+export const popularCategories = [
+    {name : "Front End", slug : "front-end"},
+    {name : "Back End", slug : "back-end"},
+    {name : "Full Stack", slug : "Full-stack"},
+    {name : "Artificial intelligence", slug : "ai"},
+
+]
+export const popularTags = [
+	{ name: 'ReactJS', slug: 'react-js' },
+	{ name: 'JavaScript', slug: 'java-script' },
+	{ name: 'NodeJS', slug: 'node-js' },
+	{ name: 'NextJS', slug: 'next-js' },
+]

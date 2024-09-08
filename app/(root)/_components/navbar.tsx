@@ -3,6 +3,7 @@ import { navLinks } from '@/constants'
 import { Search } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
+import GlobalSearch from './globalSearch'
 
 function Navbar() {
   return (  
@@ -20,12 +21,9 @@ function Navbar() {
         </div>
         {/* Search */}
         <div className='flex items-center gap-1' >
-          <div className='flex gap-1 items-center hover:bg-blue-400/20 py-2 px-3 cursor-pointer rounded-sm transition-colors'>
-            <span className='hidden md:flex'>Search</span>
-            <Search className='w-4 h-4'/>
-          </div>
+              <GlobalSearch/>
+            <ModeToggle/>
         </div>
-        <ModeToggle/>
       </div>
     </div>
   )
