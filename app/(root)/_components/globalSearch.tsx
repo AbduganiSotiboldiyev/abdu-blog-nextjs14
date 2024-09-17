@@ -4,6 +4,7 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Input } from '@/components/ui/input'
 import { popularCategories, popularTags } from '@/constants'
 import { Search } from 'lucide-react'
+import Link from 'next/link'
 import React from 'react'
 
 
@@ -23,8 +24,10 @@ function GlobalSearch() {
                     <p className="font-creteRound text-2xl ">See post by categories</p>
                     <div className='flex flex-wrap gap-2'>
                         {popularCategories.map(categories => (
-                            
-                            <Badge variant={"secondary"} key={categories.slug}>{categories.name}</Badge>
+                            <Link href={`/categories/${categories.slug}`}>
+                                <Badge variant={"secondary"} key={categories.slug}>{categories.name}</Badge>
+
+                            </Link>
                             ))}
 
                     </div>

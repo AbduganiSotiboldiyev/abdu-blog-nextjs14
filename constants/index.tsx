@@ -19,7 +19,7 @@ export const popularCategories = [
     {name : "Front End", slug : "front-end"},
     {name : "Back End", slug : "back-end"},
     {name : "Full Stack", slug : "Full-stack"},
-    {name : "Artificial intelligence", slug : "ai"},
+    {name : "Artificial intelligence", slug : "artificial-intelligence"},
 
 ]
 export const popularTags = [

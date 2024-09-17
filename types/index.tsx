@@ -24,4 +24,6 @@ export interface IAuthor {
 export interface IcategoriesAndTags {
 	name: string
 	slug: string
+	blogs : IBlog[]
+	author : IAuthor
 }

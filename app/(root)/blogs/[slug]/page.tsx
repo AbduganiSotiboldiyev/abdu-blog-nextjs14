@@ -11,6 +11,7 @@ import React from 'react'
 async function SlugPage({params} : {params : {slug: string}}) {
   const blog = await getDetailedPage(params.slug)
   
+  
   return (
     
         <div className='pt-[15vh] max-w-5xl mx-auto'>
