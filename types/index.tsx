@@ -20,6 +20,7 @@ export interface IAuthor {
     name :  string
 	slug : string
     authorImg: {url : string}
+	blogs :IBlog[]
 }
 
 export interface IcategoriesAndTags {

@@ -3,9 +3,26 @@ import request, { gql } from "graphql-request"
 
 const graphqlApi = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
+export const getAuthors = async () => {
+    const query = gql` 
+        query MyQuery {
+            authors {
+                name
+                slug
+                bio
+                authorImg {
+                url
+                }
+            }
+            }
+    `
+    const result = await request<{authors : IAuthor[]}>(graphqlApi,query)
+    return result.authors
+}
+
 export const getAuthor = async (slug :string) => {
     const query = gql` 
-    query MyQuery($slug : Sting!) {
+    query MyQuery($slug : String!) {
         author(where: {slug: $slug}) {
             name
             bio
@@ -21,6 +38,6 @@ export const getAuthor = async (slug :string) => {
         }
         }
     `
-    const result = await request<{author : IAuthor}>(graphqlApi, query, {slug})
+    const result = await request<{author : IAuthor[]}>(graphqlApi, query, {slug})
     return result.author
 }
