@@ -11,6 +11,7 @@ export const getBlogsByTag = async (slug: string) => {
 					description
 					author {
 						name
+						slug
 						authorImg {
 							url
 						}
@@ -25,6 +26,10 @@ export const getBlogsByTag = async (slug: string) => {
 					}
 					slug
 					tag {
+						name
+						slug
+					}
+					category {
 						name
 						slug
 					}

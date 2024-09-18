@@ -33,11 +33,16 @@ export const getBlogsByCategory = async (slug : string) => {
                 createdAt
                 author {
                     name
+                    slug
                     authorImg {
                     url
                     }
                 }
-                tag {
+                category {
+                    slug
+                    name
+                }
+                 tag {
                     slug
                     name
                 }

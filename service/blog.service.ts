@@ -16,6 +16,7 @@ export const getBlogs = async () => {
                 slug
                 author {
                 name
+                slug
                 authorImg {
                     url
                 }

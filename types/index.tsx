@@ -18,6 +18,7 @@ export interface IBlog {
 
 export interface IAuthor {
     name :  string
+	slug : string
     authorImg: {url : string}
 }
 

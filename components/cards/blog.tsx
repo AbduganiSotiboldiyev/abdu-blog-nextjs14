@@ -1,6 +1,6 @@
 import { cn, getReadingTime } from '@/lib/utils'
 import { IBlog } from '@/types'
-import { CalendarDays, Clock, Dot, Minus } from 'lucide-react'
+import { CalendarDays, Clock, Dot, Layers2, Minus, Tags } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Badge } from '../ui/badge'
@@ -14,6 +14,7 @@ interface Props extends IBlog {
 
 function BlogCard(blog: Props) {
 	
+	console.log(blog.author)
 	return (
 		<div className={cn(
 					'grid gap-4 group ',
@@ -71,22 +72,28 @@ function BlogCard(blog: Props) {
 					{/* Author */}
 				
 						<div className='flex items-center gap-4'>
-							<div className='flex items-center gap-2'>
-								<Image
-									src={blog.author.authorImg.url}
-									alt='author'
-									width={30}
-									height={30}
-									className='object-cover rounded-sm'
-								/>
-								<p>by {blog.author.name}</p>
-							</div>
+							<Link href={`/authors/${blog.author.slug}`}>
+								<div className='flex items-center gap-2'>
+									<Image
+										src={blog.author.authorImg.url}
+										alt='author'
+										width={30}
+										height={30}
+										className='object-cover rounded-sm'
+									/>
+									<p>by {blog.author.name}</p>
+								</div>
+
+							</Link>
 							<Dot />	
 							<div className='flex items-center gap-2'>
 								<Link href={`/tags/${blog.tag.slug}`}>
-									<Badge variant={'secondary'} role='button'>{blog.tag.name}</Badge>
-
+									<Badge variant={'secondary'} role='button'><Tags className='w-4 h-4 '/>{blog.tag.name}</Badge>
 								</Link>
+								<Link href={`/categories/${blog.category.slug}`}>
+									<Badge variant={'secondary'} role='button'><Layers2 className='w-4 h-4 '/>{blog.category.name}</Badge>
+								</Link>
+							
 							</div>
 						</div>
 
@@ -100,22 +107,28 @@ function BlogCard(blog: Props) {
 					{/* Author */}
 				
 						<div className='flex items-center gap-4'>
-							<div className='flex items-center gap-2'>
-								<Image
-									src={blog.author.authorImg.url}
-									alt='author'
-									width={30}
-									height={30}
-									className='object-cover rounded-sm'
-								/>
-								<p>by {blog.author.name}</p>
-							</div>
+							<Link href={`/authors/${blog.author.slug}`}>
+								<div className='flex items-center gap-2'>
+									<Image
+										src={blog.author.authorImg.url}
+										alt='author'
+										width={30}
+										height={30}
+										className='object-cover rounded-sm'
+									/>
+									<p>by {blog.author.name}</p>
+								</div>
+
+							</Link>
 							<Dot />	
 							<div className='flex items-center gap-2'>
 								<Link href={`/tags/${blog.tag.slug}`}>
-									<Badge variant={'secondary'} role='button'>{blog.tag.name}</Badge>
-
+									<Badge variant={'secondary'} role='button'><Tags className='w-4 h-4 '/>{blog.tag.name}</Badge>
 								</Link>
+								<Link href={`/categories/${blog.category.slug}`}>
+									<Badge variant={'secondary'} role='button'><Layers2 className='w-4 h-4 '/>{blog.category.name}</Badge>
+								</Link>
+								
 							</div>
 						</div>
 					<div className='flex items-center gap-4'>

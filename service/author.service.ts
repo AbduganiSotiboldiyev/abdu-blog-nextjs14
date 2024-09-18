@@ -3,19 +3,24 @@ import request, { gql } from "graphql-request"
 
 const graphqlApi = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
-export const getAuthor = async () => {
+export const getAuthor = async (slug :string) => {
     const query = gql` 
-    query MyQuery {
-        authors {
+    query MyQuery($slug : Sting!) {
+        author(where: {slug: $slug}) {
             name
             bio
-            id
             authorImg {
             url
+            }
+            blogs {
+            ... on Blog {
+                id
+                description
+            }
             }
         }
         }
     `
-    const result = await request<{author : IAuthor}>(graphqlApi, query)
+    const result = await request<{author : IAuthor}>(graphqlApi, query, {slug})
     return result.author
 }
