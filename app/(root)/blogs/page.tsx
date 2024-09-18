@@ -26,7 +26,7 @@ async function Blogs() {
 			</div>
         <div className='grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24 mt-24' >
             {blogs.map(blog => (
-              <BlogCard key={blog.id} {...blog}  isVertical/>
+              <BlogCard key={blog.id} {...blog}  type='default' isVertical/>
             ))}
         </div>
     </div>

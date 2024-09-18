@@ -18,15 +18,15 @@ export  const navLinks = [
 export const popularCategories = [
     {name : "Front End", slug : "front-end"},
     {name : "Back End", slug : "back-end"},
-    {name : "Full Stack", slug : "Full-stack"},
+    {name : "Full Stack", slug : "full-stack"},
     {name : "Artificial intelligence", slug : "artificial-intelligence"},
 
 ]
 export const popularTags = [
 	{ name: 'ReactJS', slug: 'react-js' },
-	{ name: 'JavaScript', slug: 'java-script' },
-	{ name: 'NodeJS', slug: 'node-js' },
-	{ name: 'NextJS', slug: 'next-js' },
+	{ name: 'JavaScript', slug: 'javascript' },
+	{ name: 'NodeJS', slug: 'nodejs' },
+	{ name: 'NextJS', slug: 'nextjs' },
 ]
 
 export const blogs = [

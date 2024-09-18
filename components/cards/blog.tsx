@@ -9,6 +9,7 @@ import {format} from "date-fns"
 interface Props extends IBlog {
 	isVertical?: boolean
 	isHorizontal? : boolean
+	type : "home"  | "default"
 }
 
 function BlogCard(blog: Props) {
@@ -26,13 +27,22 @@ function BlogCard(blog: Props) {
 				
 			>
 				<div className='relative bg-secondary rounded-md'>
-					<Image
-						width={650}
-						height={335}
-						src={blog.blogImg.url}
-						alt={blog.title}
-						className='px-2 md:px-7 rounded-md group-hover:-translate-y-7 -translate-y-6 transition-all object-cover grayscale group-hover:grayscale-0 max-md:-translate-y-2 max-md:group-hover:-translate-y-3'
-					/>
+					{blog.type === "home" ? 
+						<Image
+							width={900}
+							height={335}
+							src={blog.blogImg.url}
+							alt={blog.title}
+							className='px-2 md:px-7 rounded-md group-hover:-translate-y-7 -translate-y-6 transition-all object-cover grayscale group-hover:grayscale-0 max-md:-translate-y-2 max-md:group-hover:-translate-y-3'
+						/> :
+						<Image
+							width={650}
+							height={335}
+							src={blog.blogImg.url}
+							alt={blog.title}
+							className='px-2 md:px-7 rounded-md group-hover:-translate-y-7 -translate-y-6 transition-all object-cover grayscale group-hover:grayscale-0 max-md:-translate-y-2 max-md:group-hover:-translate-y-3'
+						/> 
+					}
 				</div>
 				</Link>
 				<div className='flex flex-col space-y-4'>

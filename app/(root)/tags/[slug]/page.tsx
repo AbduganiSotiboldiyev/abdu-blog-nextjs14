@@ -1,13 +1,12 @@
 import BlogCard from '@/components/cards/blog'
 import { getBlogsByTag } from '@/service/tag.service'
 import { Dot, Home } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 async function Page({ params }: { params: { slug: string } }) {
 	const tags = await getBlogsByTag(params.slug)
-	console.log(tags)
+	
 
 	return (
 		<div className='max-w-6xl mx-auto'>
