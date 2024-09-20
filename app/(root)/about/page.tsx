@@ -79,7 +79,7 @@ async function AboutPage() {
 
 			<div className='flex justify-around max-md:flex-col max-md:space-y-4 max-md:items-center'>
 				{author.map( author=> (
-					<AuthorCard key={author.name} {...author} />
+					<AuthorCard key={author.name} {...author} type='about' />
 				))}
 			</div>
 		</div>

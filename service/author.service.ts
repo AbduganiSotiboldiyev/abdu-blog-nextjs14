@@ -31,8 +31,32 @@ export const getAuthor = async (slug :string) => {
             }
             blogs {
             ... on Blog {
-                id
+               title
                 description
+                id
+                blogImg {
+                url
+                }
+                slug
+                author {
+                name
+                slug
+                authorImg {
+                    url
+                }
+                }
+                tag {
+                name
+                slug
+                }
+                category {
+                name
+                slug
+                }
+                createdAt
+                info {
+                html
+                }
             }
             }
         }
