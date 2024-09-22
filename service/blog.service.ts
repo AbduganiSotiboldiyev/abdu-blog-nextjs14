@@ -57,6 +57,7 @@ export const getDetailedPage = async (slug : string)=> {
                 author {
                 bio
                 name
+                slug
                 publishedAt
                 authorImg {
                     url

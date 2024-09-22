@@ -17,7 +17,7 @@ async function AuthorCard(author : Props) {
     <div className='flex flex-col space-y-2  text-center'>
       {author.type === "about" ? 
       <>
-        <div className='w-full h-52 relative' >   
+        <div className='w-52 h-52 relative' >   
           <Link href={`/authors/${author.slug}`}>
             <Image src={author.authorImg.url} alt={author.name} fill className='object-cover rounded-md grayscale hover:grayscale-0 transition-all'></Image>
           </Link>
