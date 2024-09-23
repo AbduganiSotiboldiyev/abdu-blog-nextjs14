@@ -75,3 +75,21 @@ export const getDetailedPage = async (slug : string)=> {
     const result = await request<{blog : IBlog[]}>(graphqlAPI, query, {slug})
     return result.blog
 }
+
+export const getSearchPanel =async (title : string) => {
+    const query = gql`
+        query MyQuery($title : String!) {
+            blogs(where: {title_contains: $title}) {
+                id
+                slug
+                title
+                createdAt
+                blogImg {
+                url
+                }
+            }
+            }
+    `
+    const result = await request<{blogs : IBlog[]}>(graphqlAPI,query, {title})
+    return result.blogs
+}

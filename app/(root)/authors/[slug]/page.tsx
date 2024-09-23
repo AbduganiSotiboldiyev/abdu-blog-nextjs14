@@ -6,7 +6,7 @@ import React from 'react'
 
 async function AuthorPage({params} : {params : {slug: string}} ) {
     const author = await getAuthor(params.slug)
-    console.log(author)
+    
   return (
    <div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-center flex-col'>
