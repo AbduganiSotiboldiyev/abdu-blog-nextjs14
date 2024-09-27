@@ -15,6 +15,10 @@ export interface IBlog {
 	info : {html : string}
 	
 }
+export interface IArchivedBlog{ 
+	year:string 
+	blogs :IBlog[]
+}
 
 export interface IAuthor {
     name :  string

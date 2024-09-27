@@ -1,4 +1,4 @@
-import { IBlog } from "@/types"
+import { IBlog ,IArchive, IArchivedBlog} from "@/types"
 import request, {gql} from "graphql-request"
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
@@ -93,3 +93,33 @@ export const getSearchPanel =async (title : string) => {
     const result = await request<{blogs : IBlog[]}>(graphqlAPI,query, {title})
     return result.blogs
 }
+
+export const getArchivedBlogs = async () => {
+    const query = gql`
+        query MyQuery {
+            blogs(where: {archive: true}) {
+                id
+                slug
+                title
+                createdAt
+            }
+            }
+    `
+    const {blogs} = await request<{blogs : IBlog[]}>(graphqlAPI, query)
+    const filteredBlogs = blogs.reduce(
+        (acc: {[year :string] :IArchivedBlog},blog :IBlog) =>{
+            const year = blog.createdAt.substring(0,4)
+            if(!acc[year]) {
+                acc[year] ={year,blogs:[]}
+            }
+            acc[year].blogs.push(blog)
+            return acc
+           
+        },{}
+    )
+    const results: IArchivedBlog[] = Object.values(filteredBlogs)
+	return results
+    
+}
+
+
