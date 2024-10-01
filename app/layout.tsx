@@ -3,7 +3,7 @@ import {Crete_Round,Work_Sans } from "next/font/google";
 import "./globals.css";
 import ChildProps from "@/types";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-
+import NextTopLoader from 'nextjs-toploader';
 
 
 const creteRound = Crete_Round({
@@ -50,6 +50,7 @@ function RootLayout({children}:ChildProps) {
             enableSystem
             disableTransitionOnChange
             >
+              <NextTopLoader showSpinner = {false} />
           {children}
 
         </ThemeProvider>
