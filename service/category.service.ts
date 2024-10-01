@@ -10,6 +10,9 @@ export const getCategory = async () =>{
         categories {
             name
             slug
+            blogs{
+                id
+            }
         }
         }
     `
