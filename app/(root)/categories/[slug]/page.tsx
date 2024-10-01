@@ -4,6 +4,14 @@ import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
+
+export async function generateMetadata({params} : {params : {slug: string}}) {
+	const category = await getBlogsByCategory(params.slug)
+	return {
+		title : category.name
+	}
+}
+
 async function Page({params} : {params : {slug:string}}) {
     const category = await getBlogsByCategory(params.slug)
     

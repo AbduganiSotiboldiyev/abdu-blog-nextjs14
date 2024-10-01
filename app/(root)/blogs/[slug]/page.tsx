@@ -8,6 +8,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+
+export async function generateMetadata({params} : {params : {slug: string}}) {
+	const blog = await getDetailedPage(params.slug)
+	return {
+		title : blog.title
+	}
+}
+
+
 async function SlugPage({params} : {params : {slug: string}}) {
   const blog = await getDetailedPage(params.slug)
   
