@@ -1,5 +1,6 @@
 import { IAuthor } from "@/types"
 import request, { gql } from "graphql-request"
+import { cache } from "react"
 
 const graphqlApi = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
@@ -20,7 +21,7 @@ export const getAuthors = async () => {
     return result.authors
 }
 
-export const getAuthor = async (slug :string) => {
+export const getAuthor =  cache( async (slug :string) => {
     const query = gql` 
     query MyQuery($slug : String!) {
         author(where: {slug: $slug}) {
@@ -64,4 +65,4 @@ export const getAuthor = async (slug :string) => {
     `
     const result = await request<{author : IAuthor[]}>(graphqlApi, query, {slug})
     return result.author
-}
+})

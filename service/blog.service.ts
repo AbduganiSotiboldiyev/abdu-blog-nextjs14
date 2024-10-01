@@ -1,5 +1,6 @@
-import { IBlog ,IArchive, IArchivedBlog} from "@/types"
+import { IBlog , IArchivedBlog} from "@/types"
 import request, {gql} from "graphql-request"
+import { cache } from "react"
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
@@ -40,7 +41,7 @@ export const getBlogs = async () => {
     return result.blogs
 }
 
-export const getDetailedPage = async (slug : string)=> {
+export const getDetailedPage =cache( async (slug : string)=> {
     const query = gql `
         query MyQuery($slug: String!) {
             blog(where: {slug: $slug}) {
@@ -74,7 +75,7 @@ export const getDetailedPage = async (slug : string)=> {
     `
     const result = await request<{blog : IBlog[]}>(graphqlAPI, query, {slug})
     return result.blog
-}
+})
 
 export const getSearchPanel =async (title : string) => {
     const query = gql`
