@@ -1,6 +1,7 @@
 'use client'
 
-import SearchCard from '@/components/cards/search'
+import SearchCard from '@/components/cards/searchCard'
+// import SearchCard from '@/components/cards/search'
 import { Badge } from '@/components/ui/badge'
 import {
 	Drawer,
@@ -11,7 +12,8 @@ import {
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { popularCategories, popularTags } from '@/constants'
-import { getSearchBlogs } from '@/service/blog.service'
+import { getSearchPanel } from '@/service/blog.service'
+// import { getSearchBlogs } from '@/service/blog.service'
 import { IBlog } from '@/types'
 import { debounce } from 'lodash'
 import { Loader2, Minus, Search } from 'lucide-react'
@@ -27,7 +29,7 @@ function GlobalSearch() {
 
 		if (text && text.length > 2) {
 			setIsLoading(true)
-			const data = await getSearchBlogs(text)
+			const data = await getSearchPanel(text)
 			setBlogs(data)
 			setIsLoading(false)
 		} else {
