@@ -93,9 +93,9 @@ function GlobalSearch() {
                     <div className='flex flex-wrap gap-2'>
                         {popularTags.map(tags => (
                             
-                            <Link href={`/tags/${tags.slug}`}>
+                            <Link href={`/tags/${tags.slug}`} key={tags.slug}>
                                 <DrawerClose>
-                                    <Badge variant={"secondary"} key={tags.slug}>
+                                    <Badge variant={"secondary"} >
                                             {tags.name.length ?tags.name : null}
                                     </Badge>
                                 </DrawerClose>
