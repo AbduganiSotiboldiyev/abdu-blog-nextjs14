@@ -68,9 +68,9 @@ function GlobalSearch() {
                     </div>
                     <div className='flex flex-wrap gap-2'>
                         {popularCategories.map(categories => (
-                            <Link href={`/categories/${categories.slug}`}>
+                            <Link href={`/categories/${categories.slug}`} key={categories.slug}>
                                 <DrawerClose>
-                                    <Badge variant={"secondary"} key={categories.slug}>
+                                    <Badge variant={"secondary"} >
                                             {categories.name.length ? categories.name : null}
                                     </Badge>
                                 </DrawerClose>
