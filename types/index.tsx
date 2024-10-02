@@ -7,7 +7,7 @@ export interface IBlog {
 	description: string
 	id : string
 	createdAt: string
-	author: IAuthor
+	author: IAuthor[]
 	slug : string
 	blogImg : {url : string}
 	tag : IcategoriesAndTags

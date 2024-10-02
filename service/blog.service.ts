@@ -73,8 +73,8 @@ export const getDetailedPage =cache( async (slug : string)=> {
             
 
     `
-    const result = await request<{blog : IBlog[]}>(graphqlAPI, query, {slug})
-    return result.blog
+    const {blog} = await request<{blog : IBlog[]}>(graphqlAPI, query, {slug})
+    return blog
 })
 
 export const getSearchPanel =async (title : string) => {

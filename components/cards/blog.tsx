@@ -14,7 +14,7 @@ interface Props extends IBlog {
 
 function BlogCard(blog: Props) {
 	
-	console.log(blog.author)
+	
 	return (
 		<div className={cn(
 					'grid gap-4 group ',
