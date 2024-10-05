@@ -36,7 +36,7 @@ async function Page({params} : {params : {slug:string}}) {
 			</div>
             <div className='grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24 mt-24'>
 				{category.blogs.map(blog => (
-					<BlogCard key={blog.title} {...blog}  />
+					<BlogCard key={blog.title} {...blog} type='default'  />
 				))}
 			</div>
     </div>
