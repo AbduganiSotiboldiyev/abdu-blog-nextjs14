@@ -4,12 +4,12 @@ import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
-// export async function generateMetadata({params} : {params : {slug: string}}) {
-// 	const author = await getAuthor(params.slug)
-// 	return {
-// 		title : author.name
-// 	}
-// }
+export async function generateMetadata({params} : {params : {slug: string}}) {
+	const author = await getAuthor(params.slug)
+	return {
+		title : author.name
+	}
+}
 
 async function AuthorPage({params} : {params : {slug: string}} ) {
     const author = await getAuthor(params.slug)

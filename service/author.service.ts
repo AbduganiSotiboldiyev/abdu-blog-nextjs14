@@ -63,6 +63,6 @@ export const getAuthor =  cache( async (slug :string) => {
         }
         }
     `
-    const result = await request<{author : IAuthor[]}>(graphqlApi, query, {slug})
+    const result = await request<{author : IAuthor}>(graphqlApi, query, {slug})
     return result.author
 })
